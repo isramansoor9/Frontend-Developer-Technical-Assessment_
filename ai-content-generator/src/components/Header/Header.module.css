@@ -2,8 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(249, 249, 247, 0.95);
+  background: var(--color-header-bg);
   backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease;
 }
 
 .inner {
@@ -48,16 +49,18 @@
   height: 12px;
   padding: 0 3px;
   border-radius: 999px;
-  background: #f3eeea;
+  background: var(--color-progress-track);
   box-shadow: inset 0 1px 0 rgba(140, 90, 70, 0.45);
+  transition: background-color 0.3s ease;
 }
 
 .progressFill {
   width: 18%;
   height: 6px;
   border-radius: 999px;
-  background: #d07d60;
+  background: var(--color-progress-fill);
   flex-shrink: 0;
+  transition: width 0.4s ease;
 }
 
 .navList {
@@ -80,12 +83,13 @@
   border: none;
   border-radius: 0;
   background: transparent;
-  color: #1a1a1a;
-  transition: opacity 0.2s ease;
+  color: var(--color-icon);
+  transition: opacity 0.2s ease, color 0.25s ease, transform 0.2s ease;
 }
 
 .navButton:hover {
   opacity: 0.75;
+  transform: translateY(-1px);
 }
 
 .navButtonActive {
@@ -95,7 +99,8 @@
 .navIcon {
   width: 1.2rem;
   height: 1.2rem;
-  color: #1a1a1a;
+  color: var(--color-icon);
+  transition: color 0.25s ease;
 }
 
 .actions {
@@ -110,18 +115,18 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.5rem 0.9rem;
-  border: 1px solid #f4f3ee;
+  border: 1px solid var(--color-button-border);
   border-radius: 0.45rem;
-  background: #fcf7f5;
+  background: var(--color-button-bg);
   font-family: var(--font-poppins), system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   line-height: 1;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .actionButton:hover {
-  background: #f5efec;
+  background: var(--color-button-hover);
 }
 
 .actionIcon {
@@ -133,7 +138,8 @@
 
 .actionLabel {
   white-space: nowrap;
-  color: #888;
+  color: var(--color-text-label);
+  transition: color 0.25s ease;
 }
 
 .iconButton {
@@ -142,22 +148,27 @@
   justify-content: center;
   box-sizing: border-box;
   padding: 0.3rem 0.55rem;
-  border: 1px solid #f4f3ee;
+  border: 1px solid var(--color-button-border);
   border-radius: 0.45rem;
-  background: #fcf7f5;
-  transition: background-color 0.2s ease;
+  background: var(--color-button-bg);
+  color: var(--color-theme-icon);
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
 }
 
 .iconButton:hover {
-  background: #f5efec;
+  background: var(--color-button-hover);
+  transform: scale(1.04);
 }
 
-.moonIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-  object-fit: contain;
-  display: block;
-  background: transparent;
+.themeIcon {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--color-theme-icon);
+  transition: color 0.25s ease, transform 0.3s ease;
+}
+
+.iconButton:active .themeIcon {
+  transform: rotate(20deg) scale(0.95);
 }
 
 .avatar {

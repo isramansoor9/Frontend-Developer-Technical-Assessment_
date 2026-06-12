@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 import {
   FolderIcon,
   HomeIcon,
   MagicWandIcon,
+  MoonIcon,
   NavImageIcon,
+  SunIcon,
   VideoIcon,
 } from "@/components/icons/Icons";
 import styles from "./Header.module.css";
@@ -20,6 +23,9 @@ const NAV_ITEMS = [
 ];
 
 export default function Header() {
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -80,16 +86,18 @@ export default function Header() {
             <span className={styles.actionLabel}>Support</span>
           </button>
 
-          <button type="button" className={styles.iconButton} aria-label="Toggle dark mode">
-            <Image
-              src="/images/moon.png"
-              alt=""
-              width={26}
-              height={26}
-              className={styles.moonIcon}
-              aria-hidden="true"
-              unoptimized
-            />
+          <button
+            type="button"
+            className={styles.iconButton}
+            onClick={toggleTheme}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            aria-pressed={isDark}
+          >
+            {isDark ? (
+              <SunIcon className={styles.themeIcon} />
+            ) : (
+              <MoonIcon className={styles.themeIcon} />
+            )}
           </button>
 
           <div className={styles.avatar}>

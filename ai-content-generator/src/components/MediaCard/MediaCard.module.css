@@ -4,7 +4,8 @@
   width: 100%;
   aspect-ratio: 2 / 3;
   border-radius: 1rem;
-  background: #ece2dd;
+  background: var(--color-media-placeholder);
+  transition: background-color 0.3s ease;
 }
 
 .clickable {
@@ -52,5 +53,5 @@
   transform: translate(-50%, -50%);
   border-style: solid;
   border-width: 0.55rem 0 0.55rem 0.9rem;
-  border-color: transparent transparent transparent #e49b84;
+  border-color: transparent transparent transparent var(--color-accent);
 }

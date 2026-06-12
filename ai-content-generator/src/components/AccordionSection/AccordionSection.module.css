@@ -1,8 +1,9 @@
 .root {
   border-radius: 0.55rem;
-  background: #fff;
+  background: var(--color-card);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px var(--color-shadow-sm);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .root:has(.panelOpen) {
@@ -17,16 +18,16 @@
   width: 100%;
   padding: 0.5rem 1.65rem 0.5rem 0.65rem;
   border: none;
-  background: #fff;
+  background: var(--color-card);
   font-family: var(--font-poppins), system-ui, sans-serif;
   font-size: 0.74rem;
   font-weight: 600;
-  color: #1a1a1a;
-  transition: background-color 0.2s ease;
+  color: var(--color-text);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .trigger:hover {
-  background: #fdfaf8;
+  background: var(--color-accordion-hover);
 }
 
 .title {
@@ -42,14 +43,15 @@
   width: 1.35rem;
   height: 1.35rem;
   border-radius: 0.32rem;
-  background: #f5f5f5;
+  background: var(--color-chevron-bg);
+  transition: background-color 0.25s ease;
 }
 
 .chevron {
   width: 0.85rem;
   height: 0.85rem;
-  color: #1a1a1a;
-  transition: transform 0.2s ease;
+  color: var(--color-icon);
+  transition: transform 0.2s ease, color 0.25s ease;
 }
 
 .chevronOpen {
@@ -84,22 +86,22 @@
 
 .optionButton {
   padding: 0.55rem 0.75rem;
-  border: 1px solid #ece2dd;
+  border: 1px solid var(--color-dropdown-border);
   border-radius: 0.65rem;
-  background: #faf8f7;
+  background: var(--color-field-bg);
   font-size: 0.8rem;
-  color: #1a1a1a;
-  transition: border-color 0.15s ease, background-color 0.15s ease;
+  color: var(--color-text);
+  transition: border-color 0.15s ease, background-color 0.25s ease, color 0.25s ease;
 }
 
 .optionButton:hover {
-  border-color: #e49b84;
-  background: #fff5f1;
+  border-color: var(--color-accent-hover);
+  background: var(--color-dropdown-option-hover);
 }
 
 .optionButtonActive {
-  border-color: #e49b84;
-  background: #f2e5dd;
+  border-color: var(--color-accent-hover);
+  background: var(--color-dropdown-hover);
   font-weight: 600;
 }
 
@@ -112,13 +114,16 @@
 
 .fieldLabel {
   font-size: 0.75rem;
-  color: #6b6b6b;
+  color: var(--color-text-muted);
+  transition: color 0.25s ease;
 }
 
 .fieldSelect {
   padding: 0.55rem 0.75rem;
-  border: 1px solid #ece2dd;
+  border: 1px solid var(--color-dropdown-border);
   border-radius: 0.65rem;
-  background: #faf8f7;
+  background: var(--color-field-bg);
   font-size: 0.85rem;
+  color: var(--color-text);
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }

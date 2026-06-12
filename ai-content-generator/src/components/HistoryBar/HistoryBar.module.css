@@ -15,10 +15,15 @@
   margin: 0 auto;
   padding: 0.45rem 0.55rem 0.45rem 0.45rem;
   border-radius: 1rem;
-  background: linear-gradient(to right, #f9f1ee 0%, #ffffff 58%);
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(
+    to right,
+    var(--color-history-gradient-start) 0%,
+    var(--color-history-gradient-end) 58%
+  );
+  box-shadow: 4px 4px 10px var(--color-history-shadow);
   overflow: hidden;
   pointer-events: auto;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .labelBox {
@@ -31,8 +36,9 @@
   min-width: 4.1rem;
   padding: 0.38rem 0.55rem;
   border-radius: 0.65rem;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  background: var(--color-card);
+  box-shadow: 0 1px 4px var(--color-shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .title {
@@ -41,7 +47,8 @@
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.2;
-  color: #2a2a2a;
+  color: var(--color-text);
+  transition: color 0.25s ease;
 }
 
 .viewAll {
@@ -51,14 +58,14 @@
   font-family: var(--font-poppins), system-ui, sans-serif;
   font-size: 0.6rem;
   font-weight: 400;
-  color: #7a7a7a;
+  color: var(--color-text-secondary);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .viewAll:hover {
-  color: #1a1a1a;
+  color: var(--color-text);
 }
 
 .divider {
@@ -67,8 +74,9 @@
   align-self: stretch;
   margin: 0.3rem 0.45rem;
   border-radius: 999px;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: var(--color-card);
+  box-shadow: 0 1px 3px var(--color-shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .scrollWrap {
@@ -110,12 +118,13 @@
   width: 4.5rem;
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.25) 28%,
-    rgba(255, 255, 255, 0.72) 58%,
-    #fff 100%
+    transparent 0%,
+    color-mix(in srgb, var(--color-scroll-fade) 25%, transparent) 28%,
+    color-mix(in srgb, var(--color-scroll-fade) 72%, transparent) 58%,
+    var(--color-scroll-fade) 100%
   );
   pointer-events: none;
+  transition: background 0.3s ease;
 }
 
 .list {
@@ -139,7 +148,7 @@
 
 .thumbButton:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px var(--color-shadow-md);
 }
 
 .thumb {

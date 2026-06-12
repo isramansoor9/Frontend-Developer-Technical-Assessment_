@@ -7,24 +7,24 @@
   height: auto;
   aspect-ratio: auto;
   padding: 0.85rem 0.85rem 0.75rem 0.95rem;
-  border: 1px solid rgba(207, 183, 176, 0.35);
+  border: 1px solid var(--color-prompt-card-border);
   border-top-left-radius: 1.125rem;
   border-top-right-radius: 1.125rem;
   border-bottom-left-radius: 1.125rem;
   border-bottom-right-radius: 0;
   overflow: hidden;
-  background: #f5ebe8;
+  background: var(--color-prompt-card);
   box-shadow:
-    0 4px 14px rgba(207, 183, 176, 0.22),
-    1px 0 0 #cfb7b0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    0 4px 14px color-mix(in srgb, var(--color-prompt-card-edge) 22%, transparent),
+    1px 0 0 var(--color-prompt-card-edge);
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 6px 18px rgba(207, 183, 176, 0.28),
-    1px 0 0 #cfb7b0;
+    0 6px 18px color-mix(in srgb, var(--color-prompt-card-edge) 28%, transparent),
+    1px 0 0 var(--color-prompt-card-edge);
 }
 
 .text {
@@ -34,7 +34,8 @@
   font-family: var(--font-poppins), system-ui, sans-serif;
   font-size: 0.72rem;
   line-height: 1.52;
-  color: #1a1a1a;
+  color: var(--color-text);
+  transition: color 0.25s ease;
 }
 
 .modelBadge {
@@ -43,12 +44,13 @@
   margin-top: 0.15rem;
   padding: 0.3rem 0.6rem;
   border-radius: 0.45rem;
-  background: #fff;
+  background: var(--color-badge-bg);
   font-family: var(--font-poppins), system-ui, sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
-  color: #1a1a1a;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  color: var(--color-text);
+  box-shadow: 0 2px 6px var(--color-shadow-sm);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .promptCardWide {

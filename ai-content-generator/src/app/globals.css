@@ -6,6 +6,104 @@
   :root {
     --header-height: 3.75rem;
     --history-bar-height: 7rem;
+
+    --color-bg: #f9f9f7;
+    --color-text: #1a1a1a;
+    --color-text-muted: #6b6b6b;
+    --color-text-secondary: #7a7a7a;
+    --color-text-label: #888888;
+    --color-header-bg: rgba(249, 249, 247, 0.95);
+    --color-card: #ffffff;
+    --color-sidebar: #f5ebe8;
+    --color-sidebar-border: #cfb7b0;
+    --color-input-bg: #ffffff;
+    --color-input-border: #1a1a1a;
+    --color-input-placeholder: #8a8a8a;
+    --color-tab-bg: #ffffff;
+    --color-tab-active: #f2e5dd;
+    --color-tab-text: #4a4a4a;
+    --color-button-bg: #fcf7f5;
+    --color-button-border: #f4f3ee;
+    --color-button-hover: #f5efec;
+    --color-chevron-bg: #f5f5f5;
+    --color-progress-track: #f3eeea;
+    --color-progress-fill: #d07d60;
+    --color-accent: #e49d86;
+    --color-accent-hover: #e49b84;
+    --color-prompt-card: #f5ebe8;
+    --color-prompt-card-border: rgba(207, 183, 176, 0.35);
+    --color-prompt-card-edge: #cfb7b0;
+    --color-history-gradient-start: #f9f1ee;
+    --color-history-gradient-end: #ffffff;
+    --color-history-shadow: rgba(0, 0, 0, 0.05);
+    --color-scroll-fade: #ffffff;
+    --color-media-placeholder: #ece2dd;
+    --color-dropdown-border: #ece2dd;
+    --color-dropdown-hover: #f2e5dd;
+    --color-dropdown-option-hover: #fff5f1;
+    --color-accordion-hover: #fdfaf8;
+    --color-field-bg: #faf8f7;
+    --color-shadow-sm: rgba(0, 0, 0, 0.05);
+    --color-shadow-md: rgba(0, 0, 0, 0.07);
+    --color-shadow-lg: rgba(0, 0, 0, 0.08);
+    --color-error-bg: #fff0f0;
+    --color-error-text: #b42318;
+    --color-skeleton-1: #ece2dd;
+    --color-skeleton-2: #f5efec;
+    --color-overlay: rgba(10, 8, 7, 0.82);
+    --color-badge-bg: #ffffff;
+    --color-icon: #1a1a1a;
+    --color-theme-icon: #1a1a1a;
+  }
+
+  [data-theme="dark"] {
+    --color-bg: #141210;
+    --color-text: #f0ebe8;
+    --color-text-muted: #a89f99;
+    --color-text-secondary: #9a918c;
+    --color-text-label: #8a827c;
+    --color-header-bg: rgba(20, 18, 16, 0.95);
+    --color-card: #1e1c1a;
+    --color-sidebar: #1f1b19;
+    --color-sidebar-border: #3d3530;
+    --color-input-bg: #1e1c1a;
+    --color-input-border: #4a4440;
+    --color-input-placeholder: #7a726c;
+    --color-tab-bg: #1e1c1a;
+    --color-tab-active: #3d3028;
+    --color-tab-text: #c4bcb6;
+    --color-button-bg: #252220;
+    --color-button-border: #3d3835;
+    --color-button-hover: #2e2a27;
+    --color-chevron-bg: #2e2a27;
+    --color-progress-track: #2a2624;
+    --color-progress-fill: #d07d60;
+    --color-accent: #e49d86;
+    --color-accent-hover: #eda895;
+    --color-prompt-card: #1f1b19;
+    --color-prompt-card-border: rgba(100, 85, 75, 0.45);
+    --color-prompt-card-edge: #3d3530;
+    --color-history-gradient-start: #1a1816;
+    --color-history-gradient-end: #1e1c1a;
+    --color-history-shadow: rgba(0, 0, 0, 0.25);
+    --color-scroll-fade: #1e1c1a;
+    --color-media-placeholder: #2a2624;
+    --color-dropdown-border: #3d3835;
+    --color-dropdown-hover: #3d3028;
+    --color-dropdown-option-hover: #3d3028;
+    --color-accordion-hover: #2a2624;
+    --color-field-bg: #252220;
+    --color-shadow-sm: rgba(0, 0, 0, 0.2);
+    --color-shadow-md: rgba(0, 0, 0, 0.3);
+    --color-shadow-lg: rgba(0, 0, 0, 0.4);
+    --color-error-bg: #2a1818;
+    --color-error-text: #f87171;
+    --color-skeleton-1: #2a2624;
+    --color-skeleton-2: #322e2b;
+    --color-overlay: rgba(0, 0, 0, 0.9);
+    --color-badge-bg: #2e2a27;
+    --color-icon: #f0ebe8;
+    --color-theme-icon: #f0ebe8;
   }
 
   *,
@@ -17,13 +115,20 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    color-scheme: light;
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-surface text-charcoal antialiased;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     font-family: var(--font-poppins), system-ui, sans-serif;
     min-height: 100dvh;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.25s ease;
   }
 
   button,
@@ -43,6 +148,12 @@
 }
 
 @layer utilities {
+  .theme-surface {
+    background-color: var(--color-card);
+    color: var(--color-text);
+    transition: background-color 0.3s ease, color 0.25s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
   .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: #e0d5d0 transparent;

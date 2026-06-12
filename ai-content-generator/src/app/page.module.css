@@ -28,9 +28,10 @@
   margin: 0 0 0.75rem;
   padding: 0.65rem 0.85rem;
   border-radius: 0.75rem;
-  background: #fff0f0;
-  color: #b42318;
+  background: var(--color-error-bg);
+  color: var(--color-error-text);
   font-size: 0.85rem;
+  transition: background-color 0.3s ease, color 0.25s ease;
 }
 
 @media (min-width: 640px) {

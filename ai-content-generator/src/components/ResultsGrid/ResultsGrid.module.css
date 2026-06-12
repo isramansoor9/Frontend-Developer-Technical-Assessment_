@@ -35,7 +35,12 @@
 
 .skeletonCard,
 .skeletonPrompt {
-  background: linear-gradient(90deg, #ece2dd 25%, #f5efec 50%, #ece2dd 75%);
+  background: linear-gradient(
+    90deg,
+    var(--color-skeleton-1) 25%,
+    var(--color-skeleton-2) 50%,
+    var(--color-skeleton-1) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.4s ease infinite;
 }
