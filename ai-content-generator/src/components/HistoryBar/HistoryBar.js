@@ -5,9 +5,9 @@ import { useCallback, useEffect, useRef } from "react";
 import { HISTORY_ITEMS } from "@/lib/constants";
 import styles from "./HistoryBar.module.css";
 
-export default function HistoryBar() {
+export default function HistoryBar({ onImageClick }) {
   const scrollRef = useRef(null);
-  const dragState = useRef({ active: false, startX: 0, scrollLeft: 0 });
+  const dragState = useRef({ active: false, hasDragged: false, startX: 0, scrollLeft: 0 });
 
   const endDrag = useCallback(() => {
     dragState.current.active = false;
@@ -18,9 +18,16 @@ export default function HistoryBar() {
     const scrollArea = scrollRef.current;
     if (!scrollArea || !dragState.current.active) return;
 
-    event.preventDefault();
-    const walk = event.pageX - dragState.current.startX;
-    scrollArea.scrollLeft = dragState.current.scrollLeft - walk;
+    const deltaX = event.pageX - dragState.current.startX;
+    if (Math.abs(deltaX) > 4) {
+      dragState.current.hasDragged = true;
+      scrollArea.classList.add(styles.scrollDragging);
+    }
+
+    if (dragState.current.hasDragged) {
+      event.preventDefault();
+      scrollArea.scrollLeft = dragState.current.scrollLeft - deltaX;
+    }
   }, []);
 
   const handleMouseDown = useCallback((event) => {
@@ -29,10 +36,10 @@ export default function HistoryBar() {
 
     dragState.current = {
       active: true,
+      hasDragged: false,
       startX: event.pageX,
       scrollLeft: scrollArea.scrollLeft,
     };
-    scrollArea.classList.add(styles.scrollDragging);
   }, []);
 
   useEffect(() => {
@@ -66,12 +73,21 @@ export default function HistoryBar() {
             <ul className={styles.list}>
               {HISTORY_ITEMS.map((item) => (
                 <li key={item.id}>
-                  <button type="button" className={styles.thumbButton} aria-label={item.alt}>
+                  <button
+                    type="button"
+                    className={styles.thumbButton}
+                    aria-label={item.alt}
+                    onClick={() => {
+                      if (!dragState.current.hasDragged) {
+                        onImageClick?.({ src: item.src, alt: item.alt });
+                      }
+                    }}
+                  >
                     <Image
                       src={item.src}
                       alt={item.alt}
-                      width={72}
-                      height={72}
+                      width={88}
+                      height={88}
                       className={styles.thumb}
                       draggable={false}
                     />

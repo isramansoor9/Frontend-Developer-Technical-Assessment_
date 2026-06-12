@@ -157,21 +157,29 @@
   height: 1.5rem;
   object-fit: contain;
   display: block;
+  background: transparent;
 }
 
 .avatar {
+  flex-shrink: 0;
   width: 2.05rem;
   height: 2.05rem;
-  border-radius: 999px;
+  min-width: 2.05rem;
+  min-height: 2.05rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   overflow: hidden;
   border: none;
   box-shadow: none;
 }
 
 .avatarImage {
+  display: block;
   width: 100%;
   height: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 @media (min-width: 640px) {

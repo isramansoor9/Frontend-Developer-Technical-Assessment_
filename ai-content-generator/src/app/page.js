@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import GenerationSidebar from "@/components/GenerationSidebar/GenerationSidebar";
 import Header from "@/components/Header/Header";
 import HistoryBar from "@/components/HistoryBar/HistoryBar";
+import Lightbox from "@/components/Lightbox/Lightbox";
 import ResultsGrid from "@/components/ResultsGrid/ResultsGrid";
 import { DEFAULT_PROMPT } from "@/lib/constants";
 import styles from "./page.module.css";
@@ -38,6 +39,15 @@ export default function HomePage() {
   const [items, setItems] = useState(buildInitialItems);
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState("");
+  const [lightbox, setLightbox] = useState(null);
+
+  const openLightbox = useCallback(({ src, alt }) => {
+    setLightbox({ src, alt });
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightbox(null);
+  }, []);
 
   const handleGenerate = useCallback(async () => {
     if (!prompt.trim() || isGenerating) return;
@@ -87,7 +97,7 @@ export default function HomePage() {
   return (
     <div className={styles.page}>
       <Header />
-      <HistoryBar />
+      <HistoryBar onImageClick={openLightbox} />
 
       <main className={styles.main}>
         <div className={styles.workspace}>
@@ -117,10 +127,14 @@ export default function HomePage() {
               items={items}
               isGenerating={isGenerating}
               expectedCount={imageCount}
+              onImageClick={openLightbox}
             />
           </div>
         </div>
       </main>
+      {lightbox && (
+        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={closeLightbox} />
+      )}
     </div>
   );
 }

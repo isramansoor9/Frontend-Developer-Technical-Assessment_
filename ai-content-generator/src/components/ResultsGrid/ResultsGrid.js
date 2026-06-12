@@ -4,10 +4,10 @@ import styles from "./ResultsGrid.module.css";
 
 const IMAGE_COLUMNS = [2, 3, 4, 5];
 
-function DesktopCell({ column, row, children }) {
+function DesktopCell({ column, row, className = "", children }) {
   return (
     <div
-      className={styles.desktopCell}
+      className={`${styles.desktopCell} ${className}`}
       style={{ "--col": column, "--row": row }}
     >
       {children}
@@ -22,26 +22,22 @@ function LoadingSkeleton({ count }) {
   return (
     <>
       <div className={styles.mobileLayout} aria-hidden="true">
+        <div className={styles.skeletonPrompt} />
         <div className={styles.mobileImageGrid}>
           {Array.from({ length: count }, (_, index) => (
             <div key={index} className={styles.skeletonCard} />
           ))}
         </div>
-        <div className={styles.skeletonPrompt} />
       </div>
 
       <div className={styles.desktopGrid} aria-hidden="true">
-        <DesktopCell column={1} row={1}>
-          <div className={styles.spacer} />
-        </DesktopCell>
-
         {Array.from({ length: topCount }, (_, index) => (
           <DesktopCell key={`sk-top-${index}`} column={IMAGE_COLUMNS[index]} row={1}>
             <div className={styles.skeletonCard} />
           </DesktopCell>
         ))}
 
-        <DesktopCell column={1} row={2}>
+        <DesktopCell column={1} row={2} className={styles.promptCell}>
           <div className={styles.skeletonPrompt} />
         </DesktopCell>
 
@@ -60,6 +56,7 @@ export default function ResultsGrid({
   items,
   isGenerating,
   expectedCount,
+  onImageClick,
 }) {
   const topRow = items.slice(0, 4);
   const bottomRow = items.slice(4, 8);
@@ -71,32 +68,28 @@ export default function ResultsGrid({
       ) : (
         <>
           <div className={styles.mobileLayout}>
+            <PromptCard prompt={prompt} />
             <div className={styles.mobileImageGrid}>
               {items.map((item) => (
-                <MediaCard key={item.id} item={item} />
+                <MediaCard key={item.id} item={item} onClick={onImageClick} />
               ))}
             </div>
-            <PromptCard prompt={prompt} />
           </div>
 
           <div className={styles.desktopGrid}>
-            <DesktopCell column={1} row={1}>
-              <div className={styles.spacer} aria-hidden="true" />
-            </DesktopCell>
-
             {topRow.map((item, index) => (
               <DesktopCell key={item.id} column={IMAGE_COLUMNS[index]} row={1}>
-                <MediaCard item={item} />
+                <MediaCard item={item} onClick={onImageClick} />
               </DesktopCell>
             ))}
 
-            <DesktopCell column={1} row={2}>
-              <PromptCard prompt={prompt} />
+            <DesktopCell column={1} row={2} className={styles.promptCell}>
+              <PromptCard prompt={prompt} wide />
             </DesktopCell>
 
             {bottomRow.map((item, index) => (
               <DesktopCell key={item.id} column={IMAGE_COLUMNS[index]} row={2}>
-                <MediaCard item={item} />
+                <MediaCard item={item} onClick={onImageClick} />
               </DesktopCell>
             ))}
           </div>

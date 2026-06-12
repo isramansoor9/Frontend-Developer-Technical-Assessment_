@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./MediaCard.module.css";
 
-export default function MediaCard({ item }) {
+export default function MediaCard({ item, onClick }) {
   if (item.type === "video") {
     return (
       <article className={styles.card}>
@@ -20,7 +20,14 @@ export default function MediaCard({ item }) {
   }
 
   return (
-    <article className={styles.card}>
+    <article
+      className={`${styles.card} ${onClick ? styles.clickable : ""}`}
+      onClick={onClick ? () => onClick({ src: item.src, alt: item.alt }) : undefined}
+      role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => { if (e.key === "Enter" || e.key === " ") onClick({ src: item.src, alt: item.alt }); } : undefined}
+      aria-label={onClick ? `View ${item.alt} full size` : undefined}
+    >
       <Image
         src={item.src}
         alt={item.alt}

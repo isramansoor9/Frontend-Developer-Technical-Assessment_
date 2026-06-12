@@ -7,6 +7,18 @@
   background: #ece2dd;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
+.clickable .image {
+  transition: transform 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.clickable:hover .image {
+  transform: scale(1.06);
+}
+
 .image,
 .video {
   width: 100%;

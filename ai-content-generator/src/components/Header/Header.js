@@ -88,6 +88,7 @@ export default function Header() {
               height={26}
               className={styles.moonIcon}
               aria-hidden="true"
+              unoptimized
             />
           </button>
 

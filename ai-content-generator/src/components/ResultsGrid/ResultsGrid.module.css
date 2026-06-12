@@ -22,10 +22,10 @@
   display: none;
 }
 
-.spacer,
 .skeletonPrompt {
   width: 100%;
-  aspect-ratio: var(--prompt-aspect);
+  min-height: 4.5rem;
+  height: auto;
 }
 
 .skeletonCard {
@@ -64,9 +64,19 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .section {
-    --result-gap: 0.8rem;
+    --result-gap: 0.65rem;
+  }
+
+  .mobileImageGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .section {
+    --result-gap: 0.55rem;
   }
 
   .mobileLayout {
@@ -75,7 +85,7 @@
 
   .desktopGrid {
     display: grid;
-    grid-template-columns: minmax(0, 1.18fr) repeat(4, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.55fr) repeat(4, minmax(0, 1fr));
     grid-template-rows: auto auto;
     gap: var(--result-gap);
     align-items: start;
@@ -86,10 +96,19 @@
     grid-row: var(--row);
     min-width: 0;
   }
-}
 
-@media (min-width: 1280px) {
-  .section {
-    --result-gap: 0.85rem;
+  .promptCell {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    align-items: flex-start;
+    align-self: start;
+    min-width: 0;
+  }
+
+  .promptCell > * {
+    width: 100%;
+    height: auto;
+    flex: 0 0 auto;
   }
 }

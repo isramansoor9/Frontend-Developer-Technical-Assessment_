@@ -52,7 +52,9 @@ export default function Dropdown({
             </span>
           )}
         </span>
-        <ChevronDownIcon className={styles.chevron} />
+        <span className={styles.chevronWrap} aria-hidden="true">
+          <ChevronDownIcon className={styles.chevron} />
+        </span>
       </button>
 
       {open && (
