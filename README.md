@@ -85,8 +85,6 @@ Each UI region from the mockup is its own component with a co-located CSS Module
 | 1024px+    | Sidebar + results side-by-side; sidebar fills viewport height |
 | 1280px+    | Desktop 5-column results grid (prompt + 4 images per row) |
 
-iPad uses the stacked results layout (1024–1279px) to avoid cramped columns, while desktop gets the full mockup grid at 1280px+.
-
 ### Dark mode
 - Toggle via the **moon/sun icon** in the navbar.
 - Preference is saved to `localStorage` and restored on load (with a blocking inline script to prevent theme flash).
@@ -147,23 +145,3 @@ iPad uses the stacked results layout (1024–1279px) to avoid cramped columns, w
 
 Set `"type": "video"` to receive video results with poster thumbnails.
 
-## Keyboard Shortcuts
-
-- `Ctrl/Cmd + Enter` — Generate content
-- `Escape` — Close lightbox
-
-## Responsiveness Testing
-
-Test in browser DevTools or real devices at:
-
-- **320px** — iPhone SE
-- **390px** — iPhone 14
-- **768px** — iPad portrait
-- **1024px** — iPad landscape
-- **1280px+** — Desktop
-
-Confirm: no horizontal scroll, readable text, tappable controls, and correct layout at each breakpoint.
-
-## GitHub
-
-Push to a private repository and share the link with the reviewer. Meaningful commits document the build progression (scaffold → UI → API → responsiveness → dark mode).
