@@ -109,10 +109,10 @@
   display: none;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.48rem 0.95rem;
-  border: none;
-  border-radius: 9999px;
-  background: #ebebeb;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #f4f3ee;
+  border-radius: 0.45rem;
+  background: #fcf7f5;
   font-family: var(--font-poppins), system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
@@ -121,48 +121,50 @@
 }
 
 .actionButton:hover {
-  background: #e3e3e3;
+  background: #f5efec;
 }
 
 .actionIcon {
-  width: 1.05rem;
-  height: 1.05rem;
+  width: 1.1rem;
+  height: 1.1rem;
   flex-shrink: 0;
-  color: #1a1a1a;
+  object-fit: contain;
 }
 
 .actionLabel {
   white-space: nowrap;
-  color: #7d7d7d;
+  color: #888;
 }
 
 .iconButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.2rem;
-  border: none;
-  background: transparent;
-  transition: opacity 0.2s ease;
+  padding: 0.5rem 0.55rem;
+  border: 1px solid #f4f3ee;
+  border-radius: 0.45rem;
+  background: #fcf7f5;
+  overflow: visible;
+  transition: background-color 0.2s ease;
 }
 
 .iconButton:hover {
-  opacity: 0.7;
+  background: #f5efec;
 }
 
 .moonIcon {
-  width: 1.15rem;
-  height: 1.15rem;
-  color: #b5b5b5;
+  width: 1.45rem;
+  height: 1.45rem;
+  object-fit: contain;
 }
 
 .avatar {
-  width: 2rem;
-  height: 2rem;
+  width: 2.05rem;
+  height: 2.05rem;
   border-radius: 999px;
   overflow: hidden;
-  border: 2px solid #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: none;
 }
 
 .avatarImage {

@@ -113,7 +113,8 @@
 }
 
 .generateButton:disabled {
-  opacity: 0.65;
+  opacity: 1;
+  background: #e49d86;
   cursor: not-allowed;
 }
 

@@ -77,22 +77,19 @@ export function GalleryFrameIcon({ className = "" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect
-        x="5"
-        y="5"
-        width="14"
-        height="14"
-        rx="2"
+        x="4.5"
+        y="4.5"
+        width="15"
+        height="15"
+        rx="2.5"
         stroke="currentColor"
         strokeWidth="1.5"
       />
+      <circle cx="16.5" cy="7.5" r="1.15" fill="currentColor" />
       <path
-        d="M8 15l2.2-2.2 1.8 1.8L14.5 12 17 14.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M4.5 15.8 8.8 12l2.1 1.9L13.6 11l6.4 4.8H4.5z"
+        fill="currentColor"
       />
-      <circle cx="9.5" cy="9.5" r="1" fill="currentColor" />
     </svg>
   );
 }
@@ -101,13 +98,27 @@ export function SupportIcon({ className = "" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
-        d="M4 11.5a8 8 0 1 1 16 0v1.8a2.2 2.2 0 0 1-2.2 2.2h-.8a1.4 1.4 0 0 0-1.4 1.4V18a3.2 3.2 0 0 1-6.4 0v-2.1a1.4 1.4 0 0 0-1.4-1.4H6.2A2.2 2.2 0 0 1 4 13.3v-1.8z"
+        d="M4 11.8a8 8 0 1 1 16 0"
         stroke="currentColor"
         strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M4 12.8v1.8A2.2 2.2 0 0 0 6.2 16.8H8V13"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M9.2 18.2v.8a2.8 2.8 0 0 0 5.6 0v-.8"
+        d="M20 12.8v1.8a2.2 2.2 0 0 1-2.2 2H16V13"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 16.8v1a4 4 0 0 0 8 0v-1"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -120,10 +131,8 @@ export function MoonIcon({ className = "" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
-        d="M20.2 14.8A8.2 8.2 0 0 1 9.2 3.8 7.2 7.2 0 1 0 20.2 14.8z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
+        d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+        fill="currentColor"
       />
     </svg>
   );

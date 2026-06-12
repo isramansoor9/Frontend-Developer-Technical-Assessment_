@@ -4,12 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   FolderIcon,
-  GalleryFrameIcon,
   HomeIcon,
   MagicWandIcon,
-  MoonIcon,
   NavImageIcon,
-  SupportIcon,
   VideoIcon,
 } from "@/components/icons/Icons";
 import styles from "./Header.module.css";
@@ -60,25 +57,46 @@ export default function Header() {
 
         <div className={styles.actions}>
           <button type="button" className={styles.actionButton}>
-            <GalleryFrameIcon className={styles.actionIcon} />
+            <Image
+              src="/images/gallery.png"
+              alt=""
+              width={18}
+              height={18}
+              className={styles.actionIcon}
+              aria-hidden="true"
+            />
             <span className={styles.actionLabel}>Gallery</span>
           </button>
 
           <button type="button" className={styles.actionButton}>
-            <SupportIcon className={styles.actionIcon} />
+            <Image
+              src="/images/support.png"
+              alt=""
+              width={18}
+              height={18}
+              className={styles.actionIcon}
+              aria-hidden="true"
+            />
             <span className={styles.actionLabel}>Support</span>
           </button>
 
           <button type="button" className={styles.iconButton} aria-label="Toggle dark mode">
-            <MoonIcon className={styles.moonIcon} />
+            <Image
+              src="/images/moon.png"
+              alt=""
+              width={24}
+              height={24}
+              className={styles.moonIcon}
+              aria-hidden="true"
+            />
           </button>
 
           <div className={styles.avatar}>
             <Image
-              src="https://images.unsplash.com/photo-1583864691024-d0c0c8efd27d?w=80&h=80&fit=crop"
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=96&h=96&fit=crop"
               alt="User profile"
-              width={32}
-              height={32}
+              width={48}
+              height={48}
               className={styles.avatarImage}
             />
           </div>

@@ -63,10 +63,12 @@
 
 .divider {
   flex-shrink: 0;
-  width: 1px;
+  width: 0.3rem;
   align-self: stretch;
-  margin: 0.35rem 0.75rem;
-  background: rgba(217, 205, 199, 0.85);
+  margin: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .scrollWrap {
