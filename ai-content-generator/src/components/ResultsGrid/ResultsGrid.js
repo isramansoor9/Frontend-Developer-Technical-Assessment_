@@ -2,8 +2,7 @@ import MediaCard from "@/components/MediaCard/MediaCard";
 import PromptCard from "@/components/PromptCard/PromptCard";
 import styles from "./ResultsGrid.module.css";
 
-const ROW_ONE_COLUMNS = [2, 3, 4, 5];
-const ROW_TWO_COLUMNS = [2, 3, 4, 5];
+const IMAGE_COLUMNS = [2, 3, 4, 5];
 
 function DesktopCell({ column, row, children }) {
   return (
@@ -32,8 +31,12 @@ function LoadingSkeleton({ count }) {
       </div>
 
       <div className={styles.desktopGrid} aria-hidden="true">
+        <DesktopCell column={1} row={1}>
+          <div className={styles.spacer} />
+        </DesktopCell>
+
         {Array.from({ length: topCount }, (_, index) => (
-          <DesktopCell key={`sk-top-${index}`} column={ROW_ONE_COLUMNS[index]} row={1}>
+          <DesktopCell key={`sk-top-${index}`} column={IMAGE_COLUMNS[index]} row={1}>
             <div className={styles.skeletonCard} />
           </DesktopCell>
         ))}
@@ -43,7 +46,7 @@ function LoadingSkeleton({ count }) {
         </DesktopCell>
 
         {Array.from({ length: bottomCount }, (_, index) => (
-          <DesktopCell key={`sk-bottom-${index}`} column={ROW_TWO_COLUMNS[index]} row={2}>
+          <DesktopCell key={`sk-bottom-${index}`} column={IMAGE_COLUMNS[index]} row={2}>
             <div className={styles.skeletonCard} />
           </DesktopCell>
         ))}
@@ -77,8 +80,12 @@ export default function ResultsGrid({
           </div>
 
           <div className={styles.desktopGrid}>
+            <DesktopCell column={1} row={1}>
+              <div className={styles.spacer} aria-hidden="true" />
+            </DesktopCell>
+
             {topRow.map((item, index) => (
-              <DesktopCell key={item.id} column={ROW_ONE_COLUMNS[index]} row={1}>
+              <DesktopCell key={item.id} column={IMAGE_COLUMNS[index]} row={1}>
                 <MediaCard item={item} />
               </DesktopCell>
             ))}
@@ -88,7 +95,7 @@ export default function ResultsGrid({
             </DesktopCell>
 
             {bottomRow.map((item, index) => (
-              <DesktopCell key={item.id} column={ROW_TWO_COLUMNS[index]} row={2}>
+              <DesktopCell key={item.id} column={IMAGE_COLUMNS[index]} row={2}>
                 <MediaCard item={item} />
               </DesktopCell>
             ))}

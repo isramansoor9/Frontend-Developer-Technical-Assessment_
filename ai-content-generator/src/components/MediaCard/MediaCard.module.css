@@ -3,15 +3,8 @@
   overflow: hidden;
   width: 100%;
   aspect-ratio: 2 / 3;
-  border-radius: 1.125rem;
+  border-radius: 1rem;
   background: #ece2dd;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .image,
@@ -47,5 +40,5 @@
   transform: translate(-50%, -50%);
   border-style: solid;
   border-width: 0.55rem 0 0.55rem 0.9rem;
-  border-color: transparent transparent transparent #f4a88a;
+  border-color: transparent transparent transparent #e49b84;
 }

@@ -5,7 +5,7 @@ import GenerationSidebar from "@/components/GenerationSidebar/GenerationSidebar"
 import Header from "@/components/Header/Header";
 import HistoryBar from "@/components/HistoryBar/HistoryBar";
 import ResultsGrid from "@/components/ResultsGrid/ResultsGrid";
-import { DEFAULT_PROMPT, MODEL_OPTIONS } from "@/lib/constants";
+import { DEFAULT_PROMPT } from "@/lib/constants";
 import styles from "./page.module.css";
 
 const INITIAL_IMAGES = [
@@ -32,7 +32,7 @@ export default function HomePage() {
   const [contentType, setContentType] = useState("image");
   const [prompt, setPrompt] = useState("");
   const [resultsPrompt, setResultsPrompt] = useState(DEFAULT_PROMPT);
-  const [imageCount, setImageCount] = useState(4);
+  const [imageCount, setImageCount] = useState(8);
   const [aspectRatio, setAspectRatio] = useState("1:1");
   const [model, setModel] = useState("Name");
   const [items, setItems] = useState(buildInitialItems);

@@ -1,30 +1,30 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.8rem;
   width: 100%;
-  max-width: 268px;
-  padding: 0.85rem 0.75rem 1rem;
+  padding: 0.9rem 0.85rem 1rem;
   border-radius: 1.35rem;
-  background: #f9f1eb;
+  background: #f5ebe8;
+  box-shadow: 1px 0 0 #cfb7b0;
 }
 
 .tabs {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
-  padding: 0.22rem;
+  padding: 0.25rem;
   border-radius: 9999px;
   background: #fff;
 }
 
 .tab {
-  padding: 0.48rem 0.5rem;
+  padding: 0.5rem 0.6rem;
   border: none;
   border-radius: 9999px;
   background: transparent;
   font-family: var(--font-poppins), system-ui, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 500;
   color: #4a4a4a;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -54,7 +54,7 @@
 .promptBox {
   position: relative;
   border: 1px solid #1a1a1a;
-  border-radius: 1rem 1rem 0 1rem;
+  border-radius: 1rem;
   background: #fff;
   overflow: hidden;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
@@ -64,12 +64,12 @@
   display: block;
   width: 100%;
   min-height: 13.5rem;
-  padding: 0.85rem 0.75rem 4.25rem;
+  padding: 0.9rem 0.85rem 4rem;
   border: none;
   background: transparent;
   color: #1a1a1a;
   font-family: var(--font-poppins), system-ui, sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   line-height: 1.45;
   resize: none;
 }
@@ -89,27 +89,27 @@
 
 .generateButton {
   position: absolute;
-  right: 0.65rem;
-  bottom: 0.65rem;
+  right: 0.7rem;
+  bottom: 0.7rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  padding: 0.55rem 1rem;
+  padding: 0.55rem 1.05rem;
   border: none;
   border-radius: 9999px;
-  background: #e49b84;
+  background: #e49d86;
   color: #fff;
   font-family: var(--font-poppins), system-ui, sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 600;
-  box-shadow: 0 3px 10px rgba(228, 155, 132, 0.35);
+  box-shadow: 0 3px 10px rgba(228, 157, 134, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 
 .generateButton:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 5px 14px rgba(228, 155, 132, 0.42);
+  box-shadow: 0 5px 14px rgba(228, 157, 134, 0.42);
 }
 
 .generateButton:disabled {
@@ -126,7 +126,7 @@
 .quickSettings {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .accordions {
@@ -137,22 +137,16 @@
 
 @media (min-width: 1024px) {
   .sidebar {
-    padding: 0.9rem 0.8rem 1.05rem;
+    padding: 1.05rem 0.95rem 1.15rem;
     position: sticky;
-    top: 5.5rem;
+    top: calc(var(--header-height) + var(--history-bar-height));
     align-self: stretch;
-    min-height: calc(100dvh - 7rem);
-    max-height: calc(100dvh - 6.5rem);
+    min-height: calc(100dvh - var(--header-height) - var(--history-bar-height) - 1.5rem);
+    max-height: calc(100dvh - var(--header-height) - var(--history-bar-height) - 1rem);
     overflow-y: auto;
   }
 
   .promptInput {
-    min-height: 15rem;
-  }
-}
-
-@media (max-width: 1023px) {
-  .sidebar {
-    max-width: none;
+    min-height: 16rem;
   }
 }

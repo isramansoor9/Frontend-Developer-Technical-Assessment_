@@ -1,7 +1,8 @@
 .section {
-  --result-gap: 0.85rem;
-  --result-radius: 1.125rem;
+  --result-gap: 0.75rem;
+  --result-radius: 1rem;
   --result-aspect: 2 / 3;
+  --prompt-aspect: 6 / 7;
   min-width: 0;
 }
 
@@ -21,10 +22,19 @@
   display: none;
 }
 
-.skeletonCard,
+.spacer,
 .skeletonPrompt {
   width: 100%;
+  aspect-ratio: var(--prompt-aspect);
+}
+
+.skeletonCard {
+  width: 100%;
   aspect-ratio: var(--result-aspect);
+}
+
+.skeletonCard,
+.skeletonPrompt {
   background: linear-gradient(90deg, #ece2dd 25%, #f5efec 50%, #ece2dd 75%);
   background-size: 200% 100%;
   animation: shimmer 1.4s ease infinite;
@@ -51,13 +61,12 @@
 @media (min-width: 640px) {
   .mobileImageGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.9rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section {
-    --result-gap: 1.1rem;
+    --result-gap: 0.8rem;
   }
 
   .mobileLayout {
@@ -66,7 +75,7 @@
 
   .desktopGrid {
     display: grid;
-    grid-template-columns: minmax(140px, 0.52fr) repeat(4, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.18fr) repeat(4, minmax(0, 1fr));
     grid-template-rows: auto auto;
     gap: var(--result-gap);
     align-items: start;
@@ -81,10 +90,6 @@
 
 @media (min-width: 1280px) {
   .section {
-    --result-gap: 1.15rem;
-  }
-
-  .desktopGrid {
-    grid-template-columns: minmax(155px, 0.5fr) repeat(4, minmax(0, 1fr));
+    --result-gap: 0.85rem;
   }
 }

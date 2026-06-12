@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
-  EditIcon,
   FolderIcon,
-  GalleryIcon,
+  GalleryFrameIcon,
   HomeIcon,
-  LogoIcon,
+  MagicWandIcon,
   MoonIcon,
+  NavImageIcon,
   SupportIcon,
   VideoIcon,
 } from "@/components/icons/Icons";
@@ -15,9 +16,9 @@ import styles from "./Header.module.css";
 
 const NAV_ITEMS = [
   { id: "home", label: "Home", icon: HomeIcon, active: true },
-  { id: "gallery", label: "Gallery", icon: GalleryIcon },
+  { id: "gallery", label: "Gallery", icon: NavImageIcon },
   { id: "video", label: "Video", icon: VideoIcon },
-  { id: "edit", label: "Edit", icon: EditIcon },
+  { id: "edit", label: "Edit", icon: MagicWandIcon },
   { id: "folders", label: "Folders", icon: FolderIcon },
 ];
 
@@ -25,9 +26,16 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <div className={styles.logo} aria-label="F logo">
-          <LogoIcon className={styles.logoIcon} />
-        </div>
+        <Link href="/" className={styles.logo} aria-label="F logo">
+          <Image
+            src="/logo.png"
+            alt="F logo"
+            width={32}
+            height={32}
+            className={styles.logoImage}
+            priority
+          />
+        </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">
           <div className={styles.progressTrack} aria-hidden="true">
@@ -52,7 +60,7 @@ export default function Header() {
 
         <div className={styles.actions}>
           <button type="button" className={styles.actionButton}>
-            <GalleryIcon className={styles.actionIcon} />
+            <GalleryFrameIcon className={styles.actionIcon} />
             <span className={styles.actionLabel}>Gallery</span>
           </button>
 
@@ -67,10 +75,10 @@ export default function Header() {
 
           <div className={styles.avatar}>
             <Image
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&h=80&fit=crop"
+              src="https://images.unsplash.com/photo-1583864691024-d0c0c8efd27d?w=80&h=80&fit=crop"
               alt="User profile"
-              width={40}
-              height={40}
+              width={32}
+              height={32}
               className={styles.avatarImage}
             />
           </div>

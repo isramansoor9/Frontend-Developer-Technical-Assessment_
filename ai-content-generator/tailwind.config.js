@@ -8,13 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        surface: "#f5f4f2",
+        surface: "#f9f9f7",
         peach: {
           DEFAULT: "#f4a88a",
           light: "#f9d4c4",
           dark: "#e8926f",
         },
-        sidebar: "#f9f1eb",
+        sidebar: "#f5ebe8",
         charcoal: "#1a1a1a",
         muted: "#6b6b6b",
       },

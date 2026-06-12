@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --header-height: 3.75rem;
+    --history-bar-height: 7rem;
+  }
+
   *,
   *::before,
   *::after {
