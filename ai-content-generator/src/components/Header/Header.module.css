@@ -140,11 +140,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0.55rem;
+  box-sizing: border-box;
+  padding: 0.3rem 0.55rem;
   border: 1px solid #f4f3ee;
   border-radius: 0.45rem;
   background: #fcf7f5;
-  overflow: visible;
   transition: background-color 0.2s ease;
 }
 
@@ -153,9 +153,10 @@
 }
 
 .moonIcon {
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 1.5rem;
+  height: 1.5rem;
   object-fit: contain;
+  display: block;
 }
 
 .avatar {

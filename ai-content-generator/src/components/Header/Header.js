@@ -84,8 +84,8 @@ export default function Header() {
             <Image
               src="/images/moon.png"
               alt=""
-              width={24}
-              height={24}
+              width={26}
+              height={26}
               className={styles.moonIcon}
               aria-hidden="true"
             />

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    imageSizes: [16, 18, 22, 24, 28, 32, 40, 48, 64, 72, 96, 128, 256, 306, 384],
+    imageSizes: [16, 18, 22, 24, 26, 28, 32, 40, 48, 64, 72, 96, 128, 256, 306, 384],
     remotePatterns: [
       {
         protocol: "https",
