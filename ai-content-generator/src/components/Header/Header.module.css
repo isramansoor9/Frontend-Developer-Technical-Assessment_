@@ -1,0 +1,185 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(245, 244, 242, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0.85rem 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #1a1a1a;
+}
+
+.nav {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 1;
+  max-width: 22rem;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background: #e8ddd8;
+  overflow: hidden;
+}
+
+.progressFill {
+  width: 38%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #f4a88a, #f9d4c4);
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: transparent;
+  color: #6b6b6b;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: #1a1a1a;
+}
+
+.navButtonActive {
+  background: #fff;
+  color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.navIcon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.actionButton {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.7rem;
+  border: none;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: #1a1a1a;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+}
+
+.actionButton:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.actionIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.actionLabel {
+  white-space: nowrap;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: #1a1a1a;
+  transition: background-color 0.2s ease;
+}
+
+.iconButton:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.moonIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .actionButton {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding: 1rem 1.5rem;
+  }
+}

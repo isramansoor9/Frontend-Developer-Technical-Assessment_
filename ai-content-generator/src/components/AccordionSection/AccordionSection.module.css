@@ -1,0 +1,120 @@
+.root {
+  border-radius: 9999px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.root:has(.panelOpen) {
+  border-radius: 1.15rem;
+}
+
+.trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.82rem 2rem 0.82rem 0.75rem;
+  border: none;
+  background: #fff;
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: background-color 0.2s ease;
+}
+
+.trigger:hover {
+  background: #fdfaf8;
+}
+
+.title {
+  text-align: center;
+}
+
+.chevronButton {
+  position: absolute;
+  right: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chevron {
+  width: 0.85rem;
+  height: 0.85rem;
+  color: #1a1a1a;
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.panel {
+  padding: 0 1.1rem 1rem;
+}
+
+.panelOpen {
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.optionButton {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #ece2dd;
+  border-radius: 0.65rem;
+  background: #faf8f7;
+  font-size: 0.8rem;
+  color: #1a1a1a;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.optionButton:hover {
+  border-color: #e49b84;
+  background: #fff5f1;
+}
+
+.optionButtonActive {
+  border-color: #e49b84;
+  background: #f2e5dd;
+  font-weight: 600;
+}
+
+.fieldRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.fieldLabel {
+  font-size: 0.75rem;
+  color: #6b6b6b;
+}
+
+.fieldSelect {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #ece2dd;
+  border-radius: 0.65rem;
+  background: #faf8f7;
+  font-size: 0.85rem;
+}

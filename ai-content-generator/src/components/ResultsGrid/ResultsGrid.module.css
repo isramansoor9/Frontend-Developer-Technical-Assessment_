@@ -1,0 +1,90 @@
+.section {
+  --result-gap: 0.85rem;
+  --result-radius: 1.125rem;
+  --result-aspect: 2 / 3;
+  min-width: 0;
+}
+
+.mobileLayout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--result-gap);
+}
+
+.mobileImageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--result-gap);
+}
+
+.desktopGrid {
+  display: none;
+}
+
+.skeletonCard,
+.skeletonPrompt {
+  width: 100%;
+  aspect-ratio: var(--result-aspect);
+  background: linear-gradient(90deg, #ece2dd 25%, #f5efec 50%, #ece2dd 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+.skeletonCard {
+  border-radius: var(--result-radius);
+}
+
+.skeletonPrompt {
+  border-radius: var(--result-radius) var(--result-radius) 0 var(--result-radius);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .mobileImageGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    --result-gap: 1.1rem;
+  }
+
+  .mobileLayout {
+    display: none;
+  }
+
+  .desktopGrid {
+    display: grid;
+    grid-template-columns: minmax(140px, 0.52fr) repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    gap: var(--result-gap);
+    align-items: start;
+  }
+
+  .desktopCell {
+    grid-column: var(--col);
+    grid-row: var(--row);
+    min-width: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section {
+    --result-gap: 1.15rem;
+  }
+
+  .desktopGrid {
+    grid-template-columns: minmax(155px, 0.5fr) repeat(4, minmax(0, 1fr));
+  }
+}
