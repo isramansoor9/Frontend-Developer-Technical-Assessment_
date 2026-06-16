@@ -62,38 +62,40 @@ export default function ResultsGrid({
   const bottomRow = items.slice(4, 8);
 
   return (
-    <section className={styles.section} aria-label="Generated results" aria-live="polite">
-      {isGenerating ? (
-        <LoadingSkeleton count={expectedCount} />
-      ) : (
-        <>
-          <div className={styles.mobileLayout}>
-            <PromptCard prompt={prompt} />
-            <div className={styles.mobileImageGrid}>
-              {items.map((item) => (
-                <MediaCard key={item.id} item={item} onClick={onImageClick} />
-              ))}
-            </div>
-          </div>
-
-          <div className={styles.desktopGrid}>
-            {topRow.map((item, index) => (
-              <DesktopCell key={item.id} column={IMAGE_COLUMNS[index]} row={1}>
-                <MediaCard item={item} onClick={onImageClick} />
-              </DesktopCell>
+    <section className={styles.section} aria-label="Generated results">
+      <div className={styles.content} aria-busy={isGenerating}>
+        <div className={styles.mobileLayout}>
+          <PromptCard prompt={prompt} />
+          <div className={styles.mobileImageGrid}>
+            {items.map((item) => (
+              <MediaCard key={item.id} item={item} onClick={onImageClick} />
             ))}
+          </div>
+        </div>
 
-            <DesktopCell column={1} row={2} className={styles.promptCell}>
-              <PromptCard prompt={prompt} wide />
+        <div className={styles.desktopGrid}>
+          {topRow.map((item, index) => (
+            <DesktopCell key={item.id} column={IMAGE_COLUMNS[index]} row={1}>
+              <MediaCard item={item} onClick={onImageClick} />
             </DesktopCell>
+          ))}
 
-            {bottomRow.map((item, index) => (
-              <DesktopCell key={item.id} column={IMAGE_COLUMNS[index]} row={2}>
-                <MediaCard item={item} onClick={onImageClick} />
-              </DesktopCell>
-            ))}
-          </div>
-        </>
+          <DesktopCell column={1} row={2} className={styles.promptCell}>
+            <PromptCard prompt={prompt} wide />
+          </DesktopCell>
+
+          {bottomRow.map((item, index) => (
+            <DesktopCell key={item.id} column={IMAGE_COLUMNS[index]} row={2}>
+              <MediaCard item={item} onClick={onImageClick} />
+            </DesktopCell>
+          ))}
+        </div>
+      </div>
+
+      {isGenerating && (
+        <div className={styles.skeletonOverlay} aria-live="polite" aria-label="Generating content">
+          <LoadingSkeleton count={expectedCount} />
+        </div>
       )}
     </section>
   );

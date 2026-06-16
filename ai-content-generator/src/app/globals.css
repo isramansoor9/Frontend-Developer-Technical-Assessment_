@@ -114,6 +114,7 @@
 
   html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
     -webkit-text-size-adjust: 100%;
     color-scheme: light;
   }
@@ -123,6 +124,7 @@
   }
 
   body {
+    @apply antialiased;
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font-poppins), system-ui, sans-serif;

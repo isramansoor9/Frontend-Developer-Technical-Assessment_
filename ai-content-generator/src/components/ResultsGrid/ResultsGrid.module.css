@@ -3,7 +3,20 @@
   --result-radius: 1rem;
   --result-aspect: 2 / 3;
   --prompt-aspect: 6 / 7;
+  position: relative;
   min-width: 0;
+}
+
+.content {
+  min-width: 0;
+}
+
+.skeletonOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--color-bg);
+  pointer-events: none;
 }
 
 .mobileLayout {

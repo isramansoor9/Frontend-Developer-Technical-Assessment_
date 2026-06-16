@@ -50,7 +50,8 @@
 
   .workspace {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: minmax(16rem, 18rem) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
     gap: 0.9rem;
     align-items: stretch;
     flex: 1;
@@ -60,6 +61,7 @@
 
 @media (min-width: 1280px) {
   .workspace {
+    grid-template-columns: minmax(17rem, 19rem) minmax(0, 1fr);
     gap: 1rem;
   }
 }
