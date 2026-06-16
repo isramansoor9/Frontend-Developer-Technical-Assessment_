@@ -176,7 +176,7 @@
 }
 
 .overflowButton {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -276,14 +276,6 @@
   .inner {
     padding: 0.85rem 1.25rem;
   }
-
-  .actionButton {
-    display: flex;
-  }
-
-  .overflowButton {
-    display: flex;
-  }
 }
 
 @media (min-width: 768px) {
@@ -295,6 +287,14 @@
 @media (min-width: 1024px) {
   .inner {
     padding: 1rem 1.5rem;
+  }
+
+  .actionButton {
+    display: flex;
+  }
+
+  .overflowButton {
+    display: none;
   }
 
   .progressTrack {

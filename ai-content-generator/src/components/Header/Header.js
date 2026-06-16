@@ -38,7 +38,6 @@ const ACTION_ITEMS = [
 ];
 
 const ACTIONS_INLINE_BREAKPOINT = "(min-width: 1024px)";
-const ACTIONS_VISIBLE_BREAKPOINT = "(min-width: 640px)";
 
 function useMediaQuery(query) {
   const [matches, setMatches] = useState(false);
@@ -80,10 +79,9 @@ export default function Header() {
   const [panelOpen, setPanelOpen] = useState(false);
 
   const showActionsInline = useMediaQuery(ACTIONS_INLINE_BREAKPOINT);
-  const showActionsBar = useMediaQuery(ACTIONS_VISIBLE_BREAKPOINT);
 
   const visibleItems = showActionsInline ? ACTION_ITEMS : [];
-  const overflowItems = showActionsBar && !showActionsInline ? ACTION_ITEMS : [];
+  const overflowItems = showActionsInline ? [] : ACTION_ITEMS;
 
   useEffect(() => {
     if (overflowItems.length === 0) {
